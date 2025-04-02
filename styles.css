@@ -1,0 +1,2124 @@
+/* ---------------------------------------------------------------------- General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f3f9; /* Light gray background */
+    color: #333;
+}
+
+/* General button styling */
+.btn {
+    background-color: #0056d2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #003b99;
+}
+
+/* Action buttons (Edit, Delete, etc.) */
+.btn.btn-action {
+    background-color: #0056d2;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.btn-action:hover {
+    background-color: #003b99;
+}
+
+/* Disabled buttons with consistent size */
+.btn.btn-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    pointer-events: none; /* Ensure unclickable */
+    padding: 10px 15px; /* Match padding */
+    font-size: 14px; /* Match font size */
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Italic styling for the logged-in user's row */
+.italic-row td {
+    font-style: italic;
+}
+
+/* Recent Activities Notifications */
+.notification-container {
+    max-height: 400px; /* Limits height for scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Hides horizontal scrolling */
+    padding: 10px;
+    background-color: #f9fafc; /* Light background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 100%; /* Ensures it spans full width */
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+.notification-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* White card */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation */
+}
+
+.notification-card:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.activity-type {
+    font-weight: bold;
+    color: #0056d2; /* Highlight activity type */
+}
+
+.activity-timestamp {
+    font-size: 12px;
+    color: #888; /* Muted timestamp */
+}
+
+.notification-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333; /* Standard text */
+}
+
+/* Add smooth scrolling */
+.notification-container {
+    scroll-behavior: smooth;
+}
+
+/*---------------------------------------------------------------------- Navbar Styling */
+#navbar-main {
+    background-color: #0056d2; /* Deep blue background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px; /* Fixed height */
+    color: #fff; /* White text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Prevent wrapping of links */
+    position: sticky; /* Navbar stays at the top */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navbar Hover Effect for All Links */
+#navbar-main a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Default color */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    padding: 5px 10px; /* Adds padding to all links */
+    border-radius: 4px; /* Adds smooth border rounding */
+}
+
+#navbar-main a:hover {
+    background-color: transparent; /* Remove background on hover */
+    color: #ffffff; /* Keep white text on hover */
+    transform: scale(1.05); /* Adds a slight zoom effect */
+}
+
+/* Navbar Links */
+#navbar-main ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 10px; /* Adds spacing between items */
+}
+
+#navbar-main ul li {
+    flex-shrink: 0; /* Prevent shrinking of items */
+}
+
+#navbar-main ul li a {
+    text-decoration: none;
+    color: #dfe7ff; /* Lighter blue for text */
+    font-size: 14px; /* Reduced font size */
+    padding: 8px 12px; /* Adjusted padding */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#navbar-main ul li a:hover {
+    background-color: #003b99; /* Darker blue on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Navbar Dropdowns */
+#navbar-main ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #d2d0d0; /* Mid-blue dropdown background */
+    padding: 10px;
+    border-radius: 4px;
+    list-style: none;
+    z-index: 1000;
+    min-width: 200px; /* Ensure dropdown has a consistent width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+#navbar-main ul li:hover ul {
+    display: block;
+}
+
+/* Dropdown Links in Navbar */
+#navbar-main ul li ul li {
+    margin: 5px 0; /* Add spacing between items */
+}
+
+#navbar-main ul li ul li a {
+    display: block;
+    padding: 8px 10px; /* Add padding to make it easier to click */
+    color: #ffffff; /* Default color for dropdown links */
+    font-size: 14px; /* Ensure the font size is consistent */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#navbar-main ul li ul li a:hover {
+    background-color: #aac3ea; /* Match dropdown hover with navbar hover */
+    color: #ffffff; /* Keep text white */
+}
+
+/* Navbar Logo */
+.navbar-logo {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar-logo img {
+    vertical-align: middle;
+    height: 40px;
+}
+
+/* Profile Section */
+.navbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-profile .navbar-username {
+    font-size: 12px; /* Smaller font for the username */
+    font-weight: bold;
+}
+
+.navbar-profile a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-profile a.navbar-profile-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Default color */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    padding: 5px 10px; /* Optional: Adds some padding around the link */
+    border-radius: 4px; /* Optional: Makes hover effect look smoother */
+}
+
+.navbar-profile a.navbar-profile-link:hover {
+    background-color: transparent; /* Remove background on hover */
+    color: #ffffff; /* Keep white text on hover */
+    transform: scale(1.05); /* Keep slight zoom effect */
+}
+
+.navbar-profile img {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.navbar-profile img:hover {
+    transform: none; /* Prevent individual scaling, handled by group hover */
+}
+
+.navbar-username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: none; /* No additional hover styling for the text */
+}
+
+/* ---------------------------------------------------------------------- Dashboard Styling */
+#dashboard-main {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+#dashboard-main h1 {
+    color: #0056d2; /* Deep blue for headings */
+    margin-bottom: 10px;
+}
+
+#dashboard-main p {
+    color: #333; /* Standard dark text */
+}
+
+#dashboard-main a {
+    text-decoration: none;
+    color: #0056d2; /* Same blue as headings */
+    font-weight: bold;
+}
+
+#dashboard-main a:hover {
+    color: #003b99; /* Match hover color to navbar */
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------- Footer Styling */
+.footer {
+    background-color: #f0f5ff; /* Light blue background */
+    color: #4a5d91; /* Muted blue-gray text */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    border-top: 1px solid #ccd7ef; /* Subtle border */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #0056d2; /* Deep blue links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #003b99; /* Same hover blue as navbar */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Buttons (Reusable Styling) */
+button {
+    background-color: #0056d2; /* Deep blue */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003b99; /* Darker blue on hover */
+}
+
+/* Table Styling (For List Pages) */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: middle; /* Ensures vertical alignment of content */
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.action-buttons a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Keep action buttons side by side */
+.table td .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.table td .btn-action {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.table td .btn-action:hover {
+    background-color: #003b99; /* Darker blue for hover effect */
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: #0056d2;
+    color: #ffffff;
+    z-index: 2;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f0f9ff; /* Subtle highlight */
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------- Admin Dashboard Specific Styles */
+#admin-dashboard {
+    margin-top: 20px;
+}
+
+/* Equalize Gaps Between Cards */
+.overview-cards {
+    display: flex;
+    gap: 20px; /* Consistent gap across all pages */
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* Adjusts layout for smaller screens */
+}
+
+.card {
+    background-color: #c6c3c3;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 22%;
+    margin-bottom: 10px; /* Reduce space between cards and charts */
+}
+
+@media (max-width: 768px) {
+    .overview-cards {
+        flex-wrap: wrap; /* Allows cards to stack on smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Makes the cards span the full width when stacked */
+        margin-bottom: 10px;
+    }
+}
+
+.card h2 {
+    font-size: 18px; /* Adjust the font size if needed */
+    color: #333; /* Same color as <h3> */
+    margin-bottom: 10px;
+    padding-bottom: 5px; /* Space between text and line */
+    border-bottom: 2px solid #ccc; /* Add the horizontal line */
+    text-align: center; /* Align text to center */
+    min-height: 50px; /* Optional: Make space consistent for all cards */
+    line-height: 1.2; /* Adjust line spacing */
+}
+
+/* Ensure card titles and lines are consistent */
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    min-height: 50px; /* Adjust to make space consistent for all cards */
+    line-height: 1.2; /* Adjust line spacing for multi-line titles */
+}
+
+/* Card Heading Styling (Consistency Across Dashboards) */
+.card h2, .card h3 {
+    font-size: 16px; /* Same font size for all headings */
+    margin-bottom: 10px; /* Same spacing below headings */
+    padding-bottom: 5px; /* Space between the heading text and the horizontal line */
+    border-bottom: 2px solid #ccc; /* Consistent line styling */
+    text-align: center; /* Center-align text */
+    line-height: 1.2; /* Consistent line height for multi-line headings */
+    min-height: 50px; /* Ensure consistent height across cards */
+}
+
+/* Card Numbers Styling (Alignment and Size) */
+.card p {
+    font-size: 20px; /* Same font size for numbers */
+    font-weight: bold; /* Make numbers stand out */
+    color: #333; /* Ensure readability */
+    margin: 10px 0 0 0; /* Consistent spacing */
+    line-height: 1.5; /* Vertical alignment */
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100px; /* Ensure consistent height for number section */
+}
+
+/* Card Layout Consistency */
+.overview-cards .card {
+    flex: 1; /* Flex behavior for responsiveness */
+    max-width: calc((100% - 20px * 3) / 4); /* Dynamically adjust width for 4 cards */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Adjust for smaller screens (Ensure even stacking) */
+@media (max-width: 768px) {
+    .overview-cards .card {
+        max-width: calc((100% - 20px * 2) / 2); /* Adjust for 2 cards per row */
+        margin-bottom: 20px; /* Add spacing for stacked cards */
+    }
+}
+
+/* Reduced Font Size for Card Titles */
+.overview-cards .card h3 {
+    font-size: 14px; /* Reduced font size */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc; /* Add a horizontal line */
+    text-align: center; /* Center-align titles if needed */
+    padding-bottom: 5px; /* Space between text and line */
+}
+
+/* Style only for Staff Dashboard Charts */
+#staff-dashboard .dashboard-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#staff-dashboard .chart-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Make sure canvas fits inside */
+#staff-dashboard .chart-card canvas {
+    width: 100% !important;
+    max-height: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #staff-dashboard .dashboard-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #staff-dashboard .chart-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+/* Labs container styles */
+/* Generalized Circle Styles */
+.labs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px; /* Spacing between circles */
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center content within each cell */
+    margin: 0 auto; /* Center the entire container */
+    width: fit-content; /* Adjust the width to fit the content */
+}
+
+.labs-container .lab {
+    width: 40px; /* Adjust the size of the circles */
+    height: 40px; /* Match the width */
+    border-radius: 50%; /* Make it a circle */
+    display: flex; /* Center content inside the circle */
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; /* Adjust font size for visibility */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.labs-container .lab[data-active="true"],
+.labs-container .lab.active {
+    background-color: #ffe066; /* Highlight for active labs */
+    box-shadow: 0 0 10px 5px rgba(255, 224, 102, 0.8);
+    color: #000;
+}
+
+/* Responsive Circle Sizing */
+@media (max-width: 768px) {
+    .labs-container .lab {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+    }
+}
+
+.lab.active {
+    background-color: #f39c12; /* Highlight color */
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5); /* Glow effect */
+}
+
+/* Side-by-Side Layout for Metrics and Activities */
+.side-by-side-container {
+    display: flex;
+    gap: 20px; /* Space between the two sections */
+    align-items: stretch; /* Ensures both containers stretch to same height */
+}
+
+.side-by-side-container > div {
+    flex: 1; /* Ensures equal width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-by-side-container > div h2 {
+    color: #0056d2;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Chart Section */
+.chart-container {
+    margin: 30px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.chart-container h2 {
+    color: #0056d2;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.chart-container canvas {
+    width: 100%; /* Ensure the chart spans full width */
+    max-width: 800px; /* Set a clear maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the chart horizontally */
+}
+
+/* Styling for Select Year Dropdown */
+.chart-container .filter-year {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.chart-container .filter-year label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0056d2; /* Deep blue color */
+    margin-right: 10px; /* Spacing between label and dropdown */
+}
+
+.chart-container .filter-year select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.chart-container .filter-year select:focus {
+    outline: none;
+    border-color: #0056d2;
+    background-color: #eef3ff;
+    box-shadow: 0 0 5px rgba(0, 86, 210, 0.5);
+}
+
+.chart-container .filter-year select:hover {
+    background-color: #eef3ff; /* Light blue hover */
+}
+
+table thead th {
+    background-color: #0056d2; /* Deep blue background */
+    color: #ffffff; /* White text */
+    padding: 10px; /* Consistent padding */
+    text-align: center; /* Center-align text */
+    border: none; /* Optional: Remove border if unwanted */
+}
+
+/* Adjust specific table styles if needed */
+.assigned-courses-table th {
+    background-color: #0056d2; /* Same as general table styling */
+    color: #ffffff; /* Ensure text is white */
+}
+
+.recent-activities .table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    word-wrap: break-word; /* Prevents text from overflowing */
+}
+
+.recent-activities .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.recent-activities .table tbody tr:hover {
+    background-color: #e8f1ff;
+}
+
+.time-ago {
+    font-size: 0.85em; /* Slightly smaller font */
+    color: #555; /* Muted text color */
+    font-style: italic; /* Italicized for differentiation */
+}
+
+/* Combined Filter and Search Container */
+.filter-search-container {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f8f9fa; /* Light gray background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Filter and Search Form */
+.filter-search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between elements */
+    width: 100%;
+}
+
+/* Search Bar Styling */
+.filter-search-form .search-bar {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-width: 300px; /* Optional: Limit max width */
+}
+
+/* Dropdown Styling */
+.filter-search-form select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    min-width: 150px;
+    max-width: 300px; /* Optional: Limit max width */
+}
+
+/* Button Styling */
+.filter-search-form .btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0056d2; /* Blue button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-search-form .btn-primary:hover {
+    background-color: #003b99; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-search-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-search-form .search-bar,
+    .filter-search-form select,
+    .filter-search-form .btn-primary {
+        width: 100%;
+    }
+}
+
+/* ----------------------------------------------------------- MANAGE USERS Header Styling */
+#manage-users .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Layout and Containers */
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.session-details-container, .selection-container {
+    margin-bottom: 30px;
+    border-left: 4px solid #4c6ef5; /* Add a blue accent line */
+    padding-left: 20px; /* Indent the content slightly */
+}
+
+.session-details-container h2, .selection-container h2 {
+    font-size: 20px;
+    color: #0056d2;
+    margin-bottom: 20px;
+}
+
+.session-timing-container {
+    margin-bottom: 30px;
+    border-right: 4px solid #4c6ef5; /* Optional: Blue accent */
+    padding-left: 20px;
+}
+
+.session-timing-container h2 {
+    font-size: 20px;
+    color: #0056d2;
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Create User Button */
+.create-user-btn {
+    background-color: #0056d2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.create-user-btn .icon {
+    margin-right: 8px;
+}
+
+.create-user-btn:hover {
+    background-color: #003b99;
+}
+
+/* Search Bar Styling */
+/* Center the search bar and button */
+.search-bar-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    margin-bottom: 20px; /* Add spacing below */
+    margin-top: 10px; /* Add spacing above */
+}
+
+/* Style the search form to align elements inline */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the search bar and button */
+    width: 100%; /* Adjust width to fit the container */
+}
+
+/* Style the search bar */
+.search-bar {
+    flex: 1; /* Allows it to scale with available space */
+    width: 300px; /* Fixed width for better appearance */
+    max-width: 90%; /* Adjust for responsiveness */
+    padding: 10px;
+    height: 42px; /* Matches the height of the button */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style the search button */
+.search-btn {
+    background-color: #0056d2;
+    color: white;
+    padding: 10px 20px;
+    height: 42px; /* Matches the height of the search bar */
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #003b99;
+}
+
+.search-btn .icon {
+    margin-right: 8px; /* Icon spacing (if applicable) */
+}
+
+/*----------------------------------------------------------------------- Form styling (Improved) */
+/* Form container */
+.form-container {
+    max-width: 600px; /* Adjusted for a smaller container */
+    margin: 20px auto; /* Center the container horizontally */
+    background: linear-gradient(135deg, #ffffff, #f8f9fa); /* Keep gradient */
+    box-shadow: 0 8px 16px rgba(48, 46, 46, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+    padding: 30px; /* Reduce padding for compact design */
+    border-radius: 12px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.basic-info-container {
+    margin-bottom: 30px;
+    border-left: 4px solid #4c6ef5; /* Add a colored accent */
+}
+
+.role-info-container {
+    margin-top: 30px;
+    border-right: 4px solid #4c6ef5; /* Add a colored accent */
+}
+
+.assign-role-info-container {
+    margin-top: 30px;
+    border-left: 4px solid #4c6ef5; /* Add a colored accent */
+}
+
+.form-container h1 {
+    color: #0056d2;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form section headers */
+.form-container h1, .form-container h2 {
+    color: #4c6ef5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 20px;
+    color: #0056d2;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        max-width: 95%; /* Adjust width for smaller screens */
+    }
+}
+
+/* Form group styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #4c6ef5;
+    box-shadow: 0 0 8px rgba(76, 110, 245, 0.5);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4c6ef5; /* Vibrant blue focus effect */
+    box-shadow: 0 0 8px rgba(76, 110, 245, 0.5);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    background-color: #0056d2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-buttons button:hover {
+    background-color: #003b99;
+}
+
+.form-buttons .cancel-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+.form-buttons .cancel-btn:hover {
+    background-color: #bbb;
+}
+
+/* Group fields side by side */
+.form-group-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ensure equal space for fields in a row */
+.form-group-row .form-group {
+    flex: 1;
+}
+
+/* Adjust buttons for small actions like Auto-Generate */
+.btn.small {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #0056d2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.small:hover {
+    background-color: #003b99;
+}
+
+/* ------------------------------------------------------------User Details Page Enhancements */
+.user-details-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.user-details-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-details-container h2 {
+    color: #0056d2;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Card Layout */
+.user-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .user-details-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}
+
+.user-details-grid.single-card {
+    display: flex;
+    justify-content: center;
+}
+
+.user-details-grid .card,
+.user-details-center .card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-details-grid .card.full-width {
+    grid-column: span 2;
+}
+
+/* Styling for the card and labs container */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Full Width Card */
+.full-width {
+    grid-column: span 2; /* Span across both columns */
+}
+
+/* Card Heading */
+.card h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Card Content */
+.card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.card p span {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+/* Container for User Details */
+#user-details-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#course-details-container {
+    max-width: 1200px; /* Ensure the parent container has a fixed width */
+    margin: 20px auto; /* Center it on the page */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #ffffff; /* Background for consistency */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Ensure children elements do not exceed bounds */
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+.course-details-grid,
+.trainer-table {
+    margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .course-details-grid,
+    .trainer-table {
+        max-width: 90%; /* Reduce the width on smaller screens */
+    }
+}
+
+.trainer-table {
+    margin-top: 40px; /* Add space between sections */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #course-details-container {
+        padding: 15px;
+    }
+
+    .course-details-card,
+    .trainer-table {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+.course-details-card,
+.trainer-table {
+    width: 100%; /* Ensure the sections take full width of the container */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Prevent internal padding from exceeding width */
+    overflow-x: auto; /* Allow horizontal scroll if necessary */
+}
+
+.course-details-title {
+    text-align: center;
+    color: #0056d2;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.course-details-grid {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 200px; /* Add spacing between the sections */
+    width: 100%; /* Full width within the container */
+    box-sizing: border-box; /* Prevent overflow from padding */
+}
+
+@media (max-width: 768px) {
+    .course-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.course-details-card {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .course-details-card {
+        width: calc(100% - 20px); /* Less spacing on smaller screens */
+        padding: 15px; /* Adjust padding for smaller devices */
+    }
+}
+
+.course-details-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.course-details-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.course-details-card p span {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+/* Title */
+.user-details-title {
+    color: #0056d2;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.user-details-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.user-details-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.user-details-card h3.card-title {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.user-details-card p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Profile Card */
+.user-profile-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.user-profile-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-card h2 {
+    font-size: 20px;
+    color: #0056d2;
+    margin-bottom: 5px;
+}
+
+.user-profile-card p {
+    font-size: 14px;
+    color: #777;
+}
+
+.user-details-card p span {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+.user-details-card p span.detail-label {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+/* Admin Layout: Centered */
+#admin-details {
+    display: flex;
+    justify-content: center;
+}
+
+/* Staff Layout: Two Containers Side-by-Side */
+#staff-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Trainer Layout: Two Containers + Table Below */
+#trainer-details .user-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#trainer-details .user-details-table {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#trainer-details .user-details-table h3.card-title {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Courses Table */
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.courses-table a {
+    text-decoration: none;
+    color: #0056d2; /* Link color matches the theme */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.courses-table a:hover {
+    color: #003b99; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+.courses-table th, .courses-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.courses-table th {
+    background-color: #0046b5;
+    color: #ffffff;
+}
+
+
+.courses-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.courses-table tr:hover {
+    background-color: #e8f1ff;
+}
+
+/* Main container for course details */
+.course-details-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.course-details-flex {
+    display: flex;
+    gap: 20px;
+}
+
+.course-left-block, .course-right-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: red;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-right-block {
+    height: auto; /* Automatically matches left block's height */
+    display: flex;
+    flex-direction: column; /* Keeps content vertically stacked */
+}
+
+/* Ensure the right block matches the combined height of the left block */
+.course-right-block {
+    justify-content: space-between; /* Spread content evenly */
+}
+
+/* Styling for Description block */
+.course-description {
+    flex: 1; /* Ensures it stretches to match the height of the left block */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word; /* Prevents text overflow */
+}
+
+.course-description {
+    display: none;
+}
+
+.course-info-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+/* Labels for fields */
+.detail-label {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+.course-details-container h2 {
+    text-align: center;
+    color: #0056d2;
+    margin-bottom: 20px;
+}
+
+.course-info, .trainer-table {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-info h3, .trainer-table h3 {
+    text-align: left;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.course-info p span, .trainer-table table th {
+    font-weight: bold;
+    color: #0056d2;
+}
+
+
+
+.course-details-container .card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-details-container .card.full-width {
+    margin-top: 20px;
+}
+
+/* Actions Section */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.actions .btn-primary {
+    background-color: #0056d2;
+}
+
+.actions .btn-primary:hover {
+    background-color: #003b99;
+}
+
+.actions .btn-secondary {
+    background-color: #aaa;
+    color: #fff;
+}
+
+.actions .btn-secondary:hover {
+    background-color: #888;
+}
+
+.actions a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0056d2;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.actions a.btn:hover {
+    background-color: #003b99;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .user-details-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+
+    .full-width {
+        grid-column: span 1; /* Full width for smaller screens */
+    }
+}
+
+/*-------------------------------------------------------------------------------Icon Styles for Filter and Sort Buttons */
+.table-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -40px; /* Adjusted to bring closer to the table */
+    gap: 5px; /* Reduced gap between icons */
+}
+
+.icon-btn-table {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    color: #0056d2; /* Default icon color */
+    margin: 0; /* Remove unnecessary spacing */
+}
+
+.icon-btn-table:hover {
+    color: #007bff; /* Brighter color on hover */
+}
+
+.icon-btn-table:hover::after {
+    content: attr(data-tooltip); /* Tooltip text */
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333; /* Tooltip background */
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------------------------------------------Icon Styles for Filter and Sort Buttons (for courses) */
+/* Table Controls Styling */
+.table-controls-courses {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0; /* Remove margins to move closer to the table */
+    gap: 5px; /* Reduced space between icons */
+}
+
+/* Icon Button Styling */
+.icon-btn-courses {
+    background: none;
+    border: none;
+    font-size: 16px; /* Reduced icon size */
+    cursor: pointer;
+    position: relative;
+    color: #0056d2; /* Default color */
+    margin: 0;
+    padding: 5px; /* Add padding for better click area */
+    border-radius: 4px; /* Rounded edges */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Icon Buttons */
+.icon-btn-courses:hover {
+    background-color: #f2f2f2; /* Light grey hover effect */
+    color: #333; /* Darker text color on hover */
+}
+
+/* Dropdown Styling */
+.dropdown-table {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 200px;
+}
+
+.icon-btn-table.active + .dropdown-table {
+    display: block;
+}
+
+.dropdown-table label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0056d2;
+}
+
+.dropdown-table select,
+.dropdown-table input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*dropdown for select one only*/
+.dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown-options.visible {
+    display: block;
+}
+
+.dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}
+
+/* create_course.php styling */
+.trainer-container {
+    position: relative;
+    width: 100%;
+    max-height: 200px; /* Limit the height of the scrollable area */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0; /* Remove padding to ensure alignment */
+    background-color: #fff;
+}
+
+.trainer-container input[type="text"] {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Ensure it stays on top of scrolling content */
+    background-color: #fff; /* Match the container background */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a bottom border for better visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.trainer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px; /* Ensure padding for the items below */
+}
+
+#search-courses, #search-trainers {
+    margin-bottom: 10px; /* Adds a gap between the search bar and the first option */
+}
+
+.trainer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Optional: Adds spacing between items in the list */
+}
+
+.trainer-item {
+    display: flex;
+    align-items: center; /* Center contents vertically */
+    justify-content: space-between; /* Space between username and checkbox */
+    padding: 8px 0 8px 12px; /* Remove right padding */
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none; /* Ensure no shadow effects */
+    box-sizing: border-box; /* Ensure padding is included within width */
+}
+
+.trainer-item input[type="checkbox"] {
+    border: 2px solid red !important; /* Debugging border */
+    margin: 0 10px 0 auto !important; /* Add a gap of 10px on the right */
+    padding: 0 !important; /* Ensure no extra padding */
+    width: auto !important; /* Maintain automatic sizing */
+}
+
+.trainer-item:hover {
+    background-color: #eef3ff;
+    box-shadow: none; /* Ensure hover shadow is removed */
+}
+
+.trainer-item span {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+
+.assign-search-bar {
+    margin-bottom: 10px; /* Adds gap between the search bar and the course container */
+    width: 100%; /* Ensures full width of the container */
+    padding: 10px; /* Consistent padding for better appearance */
+    border: 1px solid #ccc; /* Matches styling */
+    border-radius: 4px; /* Rounded edges */
+    box-sizing: border-box; /* Includes padding in the width */
+}
+
+/*----------------------------------------------------------------------------------------------------------- pagination*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #0056d2;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .btn:hover {
+    background-color: #e8f1ff;
+}
+
+.pagination .btn-active {
+    background-color: #0056d2;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.pagination .btn-disabled {
+    color: #aaa;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Modern Table Styling */
+.table-modern {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* General Table Header Styling */
+table thead th, .assigned-courses-table th {
+    background-color: #0056d2 !important; /* Ensure deep blue background */
+    color: #ffffff !important; /* Ensure white text */
+    padding: 10px;
+    text-align: center;
+    border: none;
+}
+
+/* Add Hover States (Optional) */
+table thead th:hover, .assigned-courses-table th:hover {
+    background-color: #003b99; /* Slightly darker blue on hover */
+    color: #ffffff; /* Keep white text */
+}
+
+/* Center-align table headers and content */
+.table-modern th, .table-modern td, 
+.assigned-courses-table th, .assigned-courses-table td {
+    text-align: center; /* Center-aligns all table text */
+    vertical-align: middle; /* Ensures proper vertical alignment */
+}
+
+.assigned-courses-table th,
+.assigned-courses-table td {
+    text-align: center; /* Center-align text horizontally */
+    vertical-align: middle; /* Center-align text vertically */
+    padding: 10px; /* Add spacing for better readability */
+}
+
+.table-modern th, .assigned-courses-table th {
+    text-align: center; /* Center-aligns header text */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+.table-modern th {
+    background-color: #0056d2;
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+    border-radius: 10px 10px 0 0;
+}
+
+.table-modern td {
+    background-color: white;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 8px;
+    vertical-align: middle;
+    text-align: center; /* Centers content horizontally */
+    vertical-align: middle; /* Centers content vertically */
+}
+
+.table-modern tr:hover td {
+    background-color: #eef3ff;
+    cursor: pointer;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.status.active {
+    background-color: #28a745; /* Green for Active */
+}
+
+.status.inactive {
+    background-color: #dc3545; /* Red for Inactive */
+}
+
+.status.pending {
+    background-color: #FFFFC5;
+}
+
+.status.expiring {
+    background-color: #FF8C00; /* Orange background */
+    color: #ffffff; /* White text */
+}
+
+.status.expired {
+    background-color: #dc3545; /* Red background for expired */
+    color: #ffffff; /* White text for better visibility */
+}
+
+
+/* Action Dropdown */
+.action-dropdown {
+    position: relative;
+}
+
+/* Adjust the size and alignment of the action button */
+.action-btn {
+    width: 40px; /* Increase width for larger background */
+    height: 40px; /* Increase height for larger background */
+    font-size: 18px; /* Keep font size for the dots */
+    background: #f9f9f9; /* Add a subtle background color */
+    border: 1px solid #ddd; /* Add a border for visibility */
+    border-radius: 50%; /* Make the background circular */
+    display: flex; /* Use flex for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    color: #333; /* Set a visible default color for the dots */
+    cursor: pointer;
+    margin: auto; /* Ensure it centers within the column */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Add a hover effect for the button */
+.action-btn:hover {
+    background-color: #e8f1ff; /* Light blue background on hover */
+    color: #0056d2; /* Darker blue dots */
+}
+
+/* Center the actions column content */
+td:last-child {
+    text-align: center;
+    vertical-align: middle; /* Align content vertically */
+}
+
+.action-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px; /* Adjust as needed */
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.action-menu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.action-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Trainer Chips Container */
+.trainer-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.chip:hover {
+    background-color: #eef3ff;
+    color: #0056d2;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: inline-block; /* Ensures proper alignment within the table */
+    margin: auto; /* Centers the element horizontally */
+    vertical-align: middle; /* Aligns the status vertically within its cell */
+}
+
+.status.active {
+    background-color: #28a745;
+}
+
+.status.upcoming {
+    background-color: #ffc107;
+}
+
+.status.completed {
+    background-color: #6c757d;
+}
+
+/* Optional: Icon Inside Chips */
+.chip::before {
+    content: "👤"; /* Replace with an icon or SVG if needed */
+    margin-right: 8px;
+    font-size: 14px; /* Adjust as necessary */
+}
+
+/* Modern Table Styling for Assigned Courses */
+.assigned-courses-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.assigned-courses-table th {
+    background-color: #0056d2; /* Keep the blue background */
+    color: white; /* Set text color to white */
+    padding: 10px;
+    text-align: center; /* Optional: Center-align the header text */
+    border-radius: 8px 8px 0 0; /* Rounded corners for the header row */
+}
+
+.assigned-courses-table td {
+    background-color: white;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 8px;
+    vertical-align: middle;
+}
+
+.assigned-courses-table tr:hover td {
+    background-color: #eef3ff;
+    cursor: pointer;
+}
+
+.assigned-courses-table a {
+    text-decoration: none;
+    color: #0056d2; /* Link color matches the theme */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.assigned-courses-table a:hover {
+    color: #003b99; /* Darker blue on hover */
+    text-decoration: underline;
+}
